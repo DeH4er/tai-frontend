@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" class="container h-100">
+  <div class="row flex-row justify-content-center align-content-center" style="height: 100vh">
+    <div class="col-5">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="email" placeholder="Email" required type="email">
+      </mat-form-field>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-5">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="password" placeholder="Password" required type="password">
+      </mat-form-field>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-5">
+      <button mat-raised-button [disabled]="loginForm.invalid" (click)="login()" class="w-100" color="primary">Login</button>
+    </div>
+    <div class="w-100 mb-3"></div>
+    <div class="col-5">
+      <a routerLink="/registration">Have no account yet?</a>
+    </div>
+  </div>
+</form>

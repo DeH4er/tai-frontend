@@ -1,0 +1,64 @@
+<form [formGroup]="registrationForm" class="container h-100">
+  <div class="row flex-row justify-content-center align-content-center" style="height: 100vh">
+
+    <div class="col-5">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="name" placeholder="Name" required type="text">
+        <ng-container *ngIf="name.invalid">
+            <mat-error *ngIf="name.errors.required">Name is requried!</mat-error>
+        </ng-container>
+      </mat-form-field>
+    </div>
+
+    <div class="w-100"></div>
+
+    <div class="col-5">
+      <mat-form-field class="w-100">
+        <input matInput formControlName="email" placeholder="Email" required type="email">
+        <ng-container *ngIf="email.invalid">
+          <mat-error *ngIf="email.errors.required">Email is required!</mat-error>
+          <mat-error *ngIf="email.errors.email">Wrong email format!</mat-error>
+        </ng-container>
+      </mat-form-field>
+    </div>
+
+    <div class="w-100"></div>
+
+    <ng-container [formGroup]="password_group">
+      <div class="col-5">
+        <mat-form-field class="w-100">
+          <input matInput formControlName="password" placeholder="Password" required type="password" minlength="6">
+          <ng-container *ngIf="passsword.invalid">
+            <mat-error *ngIf="password.errors.required">Password is required!</mat-error>
+            <mat-error *ngIf="password.errors.minlength">Password must consist of 6 characters minimum</mat-error>
+          </ng-container>
+        </mat-form-field>
+      </div>
+
+      <div class="w-100"></div>
+
+      <div class="col-5">
+        <mat-form-field class="w-100">
+          <input matInput formControlName="password_confirmation" placeholder="Password confirmation" required type="password" minlength="6">
+          <ng-container *ngIf="passsword_confirmation.invalid">
+            <mat-error *ngIf="password_confirmation.errors.required">Confirm your password!</mat-error>
+            <mat-error *ngIf="password_confirmation.errors.minlength">Password confirmation must consist of 6 characters minimum!</mat-error>
+          </ng-container>
+          <mat-error *ngIf="password_group.invalid">Not equal passwords!</mat-error>
+        </mat-form-field>
+      </div>
+    </ng-container>
+
+    <div class="w-100"></div>
+
+    <div class="col-5">
+      <button mat-raised-button [disabled]="registrationForm.invalid" (click)="register()" class="w-100" color="primary">Register</button>
+    </div>
+
+    <div class="w-100 mb-3"></div>
+
+    <div class="col-5">
+      <a routerLink="/login">Already have an account?</a>
+    </div>
+  </div>
+</form>
