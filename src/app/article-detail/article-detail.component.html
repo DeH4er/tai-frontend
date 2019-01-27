@@ -1,0 +1,10 @@
+<ng-container *ngIf="article">
+  <div *ngIf="isAuthor">
+    <a routerLink="/article/{{article.id}}/edit" class="action">Edit</a>
+    <span class="action" (click)="delete()">Delete</span>
+  </div>
+  <app-article-preview [article]="article"></app-article-preview>
+  <div *ngIf="paragraphs" class="article-content">
+    <p *ngFor="let paragraph of paragraphs" class="paragraph">{{ paragraph }}</p>
+  </div>
+</ng-container>

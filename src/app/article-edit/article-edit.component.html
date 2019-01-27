@@ -1,0 +1,3 @@
+<ng-container *ngIf="article">
+  <app-article-form [article]="article" (onArticleCancel)="cancelEdit()" (onArticleSubmit)="editArticle($event)"></app-article-form>
+</ng-container>

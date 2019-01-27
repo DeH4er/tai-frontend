@@ -1,0 +1,13 @@
+<div class="container paginator p-0">
+  <div class="row justify-content-between no-gutters">
+
+    <div class="col-6 d-flex justify-content-start">
+      <button (click)="prev()" [disabled]="!canPrev()" [class.inactive]="!canPrev()" (click)="prev()">Previous</button>
+    </div>
+
+    <div class="col-6 d-flex justify-content-end">
+      <button (click)="next()" [disabled]="!canNext()" [class.inactive]="!canNext()" (click)="next()">Next</button>
+    </div>
+
+  </div>
+</div>

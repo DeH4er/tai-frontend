@@ -40,6 +40,7 @@ export class JwtInterceptor implements HttpInterceptor {
             console.log(err);
             if (err instanceof HttpErrorResponse) {
               if (err.status === 401) {
+                localStorage.removeItem('token');
                 this.router.navigate(['/login']);
               }
             }

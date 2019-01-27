@@ -1,0 +1,7 @@
+<div *ngFor="let article of articles">
+  <app-article-preview [article]="article"></app-article-preview>
+</div>
+<ng-container *ngIf="articles?.length === 0">
+  <h5>There is no articles ... Be first!</h5>
+</ng-container>
+<app-paginator [total]="total" *ngIf="total" (onChange)="paginatorEvent($event)"></app-paginator>

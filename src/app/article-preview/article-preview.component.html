@@ -1,0 +1,13 @@
+<section class="article">
+  <h5 class="article-title"><a routerLink="/article/{{article.id}}">{{ article.title }}</a></h5>
+
+  <p class="article-description">{{ article.description }}</p>
+
+  <div class="article-footer">
+    <span>{{ article.created_at | date:'MMMM d, y' | uppercase }}</span>
+    <span class="article-divider">-</span>
+    <span>{{ article.content | readTime | uppercase }}</span>
+    <span class="article-divider">-</span>
+    <span>{{article.author.name | uppercase }}</span> 
+  </div>
+</section>

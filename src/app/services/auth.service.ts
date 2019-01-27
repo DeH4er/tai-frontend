@@ -34,6 +34,10 @@ export class AuthService {
       );
   } 
 
+  isAuthorized() {
+    return localStorage.getItem('token') !== null;
+  }
+
   logout() {
     localStorage.removeItem('token');
   }

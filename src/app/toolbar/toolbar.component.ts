@@ -9,12 +9,19 @@ import {Router} from '@angular/router';
 })
 export class ToolbarComponent implements OnInit {
 
+  isAuthorized: boolean;
+
   constructor(
     private auth: AuthService,
     private router: Router
   ) { }
 
   ngOnInit() {
+    this.router.events.subscribe(() => this.updateAuthorizedState());
+  }
+
+  updateAuthorizedState() {
+    this.isAuthorized = this.auth.isAuthorized();
   }
 
   logout() {

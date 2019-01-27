@@ -1,0 +1,32 @@
+<form [formGroup]="articleForm" class="container article-form">
+  <div class="row no-gutters item">
+    <div class="col-12">
+      <input formControlName="title" placeholder="Title" required type="text" [class.invalid-input]="title.invalid && (title.dirty || title.touched)">
+      <p class="error" *ngIf="title.invalid && (title.dirty || title.touched) && title.errors?.required">Title is required!</p>
+    </div>
+  </div>
+
+  <div class="row no-gutters item">
+    <div class="col-12">
+      <input formControlName="description" placeholder="Description" required type="text" [class.invalid-input]="description.invalid && (description.dirty || description.touched)">
+      <p class="error" *ngIf="(description.dirty || description.touched) && description.invalid && description.errors?.required">description is required!</p>
+    </div>
+  </div>
+
+  <div class="row no-gutters item">
+    <div class="col-12">
+      <textarea formControlName="content" placeholder="Content" required [class.invalid-input]="content.invalid && (content.dirty || content.touched)"></textarea>
+      <p class="error" *ngIf="(content.dirty || content.touched) && content.invalid && content.errors?.required">Content is required!</p>
+    </div>
+  </div>
+
+  <div class="row item justify-content-between align-items-center">
+    <div class="col-6">
+      <button (click)="onCancel()" class="action">Cancel</button>
+    </div>
+    <div class="col-6">
+      <button [disabled]="articleForm.invalid" [class.invalid]="articleForm.invalid" (click)="onSubmit()" class="action">Submit</button>
+    </div>
+  </div>
+
+</form>
